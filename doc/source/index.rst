@@ -1,10 +1,10 @@
 .. sahara-specs documentation master file
 
-=============================
-Sahara Project Specifications
-=============================
+=========================================================
+OpenStack Data Processing service (Sahara) Specifications
+=========================================================
 
-Contents:
+Template:
 
 .. toctree::
    :glob:

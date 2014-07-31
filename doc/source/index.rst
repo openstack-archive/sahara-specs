@@ -1,8 +1,8 @@
 .. sahara-specs documentation master file
 
-=========================================================
-OpenStack Data Processing service (Sahara) Specifications
-=========================================================
+===============================================
+Data Processing Service (Sahara) Specifications
+===============================================
 
 Template:
 

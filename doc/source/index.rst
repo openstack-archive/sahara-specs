@@ -28,6 +28,14 @@ Kilo approved specs:
 
    specs/kilo/*
 
+Sahara client approved specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/saharaclient/*
+
 ==================
 Indices and tables
 ==================

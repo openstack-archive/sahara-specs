@@ -4,15 +4,15 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
-Juno approved specs:
+Juno implemented specs:
 
 .. toctree::
    :glob:
    :maxdepth: 1
 
-   specs/juno/*
+   specs/juno/implemented/*
 
-Kilo approved specs:
+Kilo specs:
 
 .. toctree::
    :glob:

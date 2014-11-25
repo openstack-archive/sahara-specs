@@ -10,6 +10,8 @@ Plugin for Sahara with MapR
 
 https://blueprints.launchpad.net/sahara/+spec/mapr-plugin
 
+https://blueprints.launchpad.net/sahara/+spec/mapr-image-elements
+
 This specification proposes to add MapR plugin with MapR Distribution of
 Hadoop in Sahara.
 

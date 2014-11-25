@@ -8,6 +8,8 @@
 Authorization Policy Support
 ============================
 
+https://blueprints.launchpad.net/sahara/+spec/auth-policy
+
 Openstack components are supposed to check user privileges for performed
 actions. Usually these checks are role-based. See
 http://docs.openstack.org/developer/keystone/architecture.html#approach-to-authorization-policy.

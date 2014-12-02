@@ -74,6 +74,13 @@ will need to be changed from the basic "get all" functionality to support a
 `**kwargs` parameter (this is already done in cluster_get_all(),
 but needs to be done for the other methods).
 
+There are a pair of special cases to be considered for filtering on the Job
+Executions table.  The "job" and "cluster" columns actually contain
+information that are not part of the job execution object.  For filters on
+those fields, a field value of "job.name" or "cluster.name" should be passed
+down.  That will trigger the database query to be joined to a filter on the
+name property of either the job or cluster table.
+
 
 Other end user impact
 ---------------------

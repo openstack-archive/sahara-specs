@@ -81,6 +81,12 @@ those fields, a field value of "job.name" or "cluster.name" should be passed
 down.  That will trigger the database query to be joined to a filter on the
 name property of either the job or cluster table.
 
+Additionally, there is special handling required to search on the Job
+Executions status field.  This is because status is not a proper field in
+the Job Execution itself, but rather it is part of the "info" field.  To
+handle this, a bit of manual filtering will be done against the info.status
+field.
+
 
 Other end user impact
 ---------------------

@@ -10,7 +10,7 @@ Juno implemented specs:
    :glob:
    :maxdepth: 1
 
-   specs/juno/implemented/*
+   specs/juno/*
 
 Kilo specs:
 
@@ -19,6 +19,14 @@ Kilo specs:
    :maxdepth: 1
 
    specs/kilo/*
+
+Unimplemented backlog specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/backlog/*
 
 Sahara client approved specs:
 

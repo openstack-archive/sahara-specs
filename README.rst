@@ -6,38 +6,52 @@ This git repository is used to hold approved design specifications for additions
 to the Sahara project. Reviews of the specs are done in gerrit, using a similar
 workflow to how we review and merge changes to the code itself.
 
-The layout of this repository is::
+The layout of this repository for Sahara specifications is::
 
   specs/<release>/
 
-Where there are two sub-directories:
+The layout of this repository for Sahara Client is::
 
-  specs/<release>/approved: specifications approved but not yet implemented
-  specs/<release>/implemented: implemented specifications
+  specs/saharaclient/
 
-This directory structure allows you to see what we thought about doing,
-decided to do, and actually got done. Users interested in functionality in a
-given release should only refer to the ``implemented`` directory.
+When a new version of Sahara Client is released the implemented blueprints
+will be moved to a directory specific to that release::
 
-You can find an example spec in `doc/source/specs/template.rst`.
+  specs/saharaclient/<release>/
+
+You can find an example spec in ``specs/template.rst``.
+
+For specifications that have been reviewed and approved but have not been
+implemented::
+
+  specs/backlog/
+
+Specifications in this directory indicate the original author has either
+become unavailable, or has indicated that they are not going to implement the
+specification. The specifications found here are available as projects for
+people looking to get involved with Sahara. If you are interested in
+claiming a spec, start by posting a review for the specification that moves it
+from this directory to the next active release. Please set yourself as the new
+`primary assignee` and maintain the original author in the `other contributors`
+list.
 
 Specifications are proposed for a given release by adding them to the
-`specs/<release>` directory and posting it for review.  The implementation
-status of a blueprint for a given release can be found by looking at the
-blueprint in launchpad.  Not all approved blueprints will get fully implemented.
+``specs/<release>`` directory and posting it for review. Not all approved
+blueprints will get fully implemented. The implementation status of a
+blueprint for a given release can be found by looking at the blueprint in
+launchpad::
 
-Specifications have to be re-proposed for every release.  The review may be
-quick, but even if something was previously approved, it should be re-reviewed
-to make sure it still makes sense as written.
+  http://blueprints.launchpad.net/sahara/<blueprint-name>
+
+Incomplete specifications have to be re-proposed for every release. The review
+may be quick, but even if something was previously approved, it should be
+re-reviewed to make sure it still makes sense as written.
 
 Prior to the Juno development cycle and for the Juno-1 development milestone,
-this repository was not used for spec reviews.
-Reviews prior to Juno were completed entirely through Launchpad blueprints::
+this repository was not used for spec reviews. Reviews prior to Juno were
+completed entirely through Launchpad blueprints::
 
   http://blueprints.launchpad.net/sahara
-
-Starting from the Juno-1 developement milestone Sahara performs the pilot of
-the specs repos approach.
 
 Please note, Launchpad blueprints are still used for tracking the
 current status of blueprints. For more information, see::

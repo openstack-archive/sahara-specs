@@ -31,6 +31,7 @@ Since we plan to use first_run to prepare and start those services, we will
 not need to call other CM APIs for those services in start_cluster() method.
 
 The implementation will need below changes on codes for each service:
+
 * Add process names of the service in some places.
 * Add service or process configuration, and network ports to open.
 * Add service validation.
@@ -93,6 +94,7 @@ Work Items
 ----------
 
 The work items will be:
+
 * Change python codes in sahara/sahara/plugins/cdh.
 * Add more service resource files in sahara/sahara/plugins/cdh/resources.
 * Test and evaluate the change.

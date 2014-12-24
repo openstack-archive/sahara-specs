@@ -121,6 +121,7 @@ Work Items
 ----------
 
 The work items will be:
+
 * Change current deploy.py and cloudera_utils.py in the way above.
 * Test and evaluate the change.
 

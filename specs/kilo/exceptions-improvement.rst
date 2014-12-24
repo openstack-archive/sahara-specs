@@ -37,8 +37,8 @@ For example, NotFoundException will leave in logs:
 
 .. sourcecode:: console
 
-NotFoundException: Error ID: 7a229eda-f630-4153-be03-d71d6467f2f4
-Object 'object' is not found
+    NotFoundException: Error ID: 7a229eda-f630-4153-be03-d71d6467f2f4
+    Object 'object' is not found
 
 ..
 

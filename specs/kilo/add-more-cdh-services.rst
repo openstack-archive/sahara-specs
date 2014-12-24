@@ -8,8 +8,6 @@
 Add More Services into CDH plugin
 ==========================================
 
-Include the URL of your launchpad blueprint:
-
 https://blueprints.launchpad.net/sahara/+spec/add-cdh-more-services
 
 This specification proposes to add below services into CDH plugins:

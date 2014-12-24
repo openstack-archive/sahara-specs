@@ -8,8 +8,6 @@
 Use first_run to One-step Start Cluster
 ==========================================
 
-Include the URL of your launchpad blueprint:
-
 https://blueprints.launchpad.net/sahara/+spec/first-run-api-usage
 
 This specification proposes to use cm_api method first_run to start cluster

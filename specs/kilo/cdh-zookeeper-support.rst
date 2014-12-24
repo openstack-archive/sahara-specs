@@ -93,6 +93,7 @@ Work Items
 ----------
 
 The work items can be divided to several parts:
+
 * Investigate Zookeeper service in a CDH cluster via Cloudera Manager(CM)
 * Leverage CM-API Client to call functions to install Zookeep via CM
 * Test and Evaluate the Concept

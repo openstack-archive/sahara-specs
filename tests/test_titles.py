@@ -78,16 +78,17 @@ class TestTitles(testtools.TestCase):
             "Found %s literal carriage returns in file %s" %
             (len(matches), tpl))
 
-
     def _check_trailing_spaces(self, tpl, raw):
         for i, line in enumerate(raw.split("\n")):
             trailing_spaces = re.findall(" +$", line)
-            self.assertEqual(len(trailing_spaces),0,
-                    "Found trailing spaces on line %s of %s" % (i+1, tpl))
-
+            self.assertEqual(
+                len(trailing_spaces), 0,
+                "Found trailing spaces on line %s of %s" % (i + 1, tpl))
 
     def test_template(self):
-        files = ['specs/template.rst'] + glob.glob('specs/*/*/*')
+        files = ['specs/template.rst'] + [fn for fn in glob.glob('specs/*/*')
+                                          if not fn.endswith("README.rst")
+                                          and not fn.endswith('redirects')]
         for filename in files:
             self.assertTrue(filename.endswith(".rst"),
                             "spec's file must uses 'rst' extension.")

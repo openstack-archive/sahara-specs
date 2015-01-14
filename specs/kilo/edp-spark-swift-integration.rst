@@ -29,7 +29,7 @@ necessary Swift credentials (`fs.swift.service.sahara.username` and
 As with Oozie Java actions, job source code may be modified and recompiled to
 add the necessary configuration values to the job’s Hadoop configuration.
 However, this means that a Spark job which runs successfully with HDFS input
-and output sources cannot be used “as is” with Swift input and output sources.
+and output sources cannot be used "as is" with Swift input and output sources.
 
 Sahara should allow users to run Spark jobs with Swift input and output
 sources without altering job source code.
@@ -43,8 +43,8 @@ Java compatibility.
 
 A new configuration value will be added to Sahara, `edp.spark.adapt_for_swift`.
 If this configuration value is set to True on a Spark job, Sahara will run a
-wrapper class (SparkWrapper) instead of the original class indicated by the job.
-The default for this configuration value will be False.
+wrapper class (SparkWrapper) instead of the original class indicated by the
+job. The default for this configuration value will be False.
 
 Sahara will generate a `spark.xml` file containing the necessary Swift
 credentials as Hadoop configuration values. This XML file will be uploaded to
@@ -54,8 +54,8 @@ other files normally needed to execute a Spark job.
 Sahara’s Spark launcher script will run the SparkWrapper class instead of the
 job’s designated main class. The launcher will pass the name of the XML
 configuration file to SparkWrapper at runtime, followed by the name of the
-original class and any job arguments. SparkWrapper will add this XML file to the
-default Hadoop resource list in the job’s configuration before invoking the
+original class and any job arguments. SparkWrapper will add this XML file to
+the default Hadoop resource list in the job's configuration before invoking the
 original class with any arguments.
 
 When the job’s main class is run, it’s default Hadoop configuration will

@@ -33,8 +33,8 @@ Proposed change
 Information can be added to context resource_uuid field and then can be
 used by ContextAdapter in openstack.common.log for a group of logs.
 
-This change requires additional saving of context in openstack.common.local.store
-to access context from openstack.common.log
+This change requires additional saving of context in
+openstack.common.local.store to access context from openstack.common.log
 
 We need to set cluster id and job execution id only once. So, it could be done
 with 2 methods that will be added to sahara.context:
@@ -59,7 +59,9 @@ If instance and cluster specified, log message will looks like:
 
 .. sourcecode:: console
 
-2014-12-22 13:54:19.574 23128 ERROR sahara.service.volumes [-] [instance: 3bd63e83-ed73-4c7f-a72f-ce52f823b080, cluster: 546c15a4-ab12-4b22-9987-4e38dc1724bd] message
+    2014-12-22 13:54:19.574 23128 ERROR sahara.service.volumes [-] [instance:
+    3bd63e83-ed73-4c7f-a72f-ce52f823b080, cluster: 546c15a4-ab12-4b22-9987-4e
+    38dc1724bd] message
 
 ..
 
@@ -67,7 +69,8 @@ If only cluster specified:
 
 .. sourcecode:: console
 
-2014-12-22 13:54:19.574 23128 ERROR sahara.service.volumes [-] [instance: none, cluster: 546c15a4-ab12-4b22-9987-4e38dc1724bd] message
+    2014-12-22 13:54:19.574 23128 ERROR sahara.service.volumes [-] [instance:
+    none, cluster: 546c15a4-ab12-4b22-9987-4e38dc1724bd] message
 
 ..
 
@@ -75,7 +78,8 @@ If job execution specified:
 
 .. sourcecode:: console
 
-2014-12-22 13:54:19.574 23128 ERROR sahara.service.edp.api [-] [instance: none, job_execution: 9de0de12-ec56-46f9-80ed-96356567a196] message
+    2014-12-22 13:54:19.574 23128 ERROR sahara.service.edp.api [-] [instance:
+    none, job_execution: 9de0de12-ec56-46f9-80ed-96356567a196] message
 
 ..
 
@@ -83,7 +87,7 @@ Field "instance:" is presented in every message (even if it's not necessary)
 because of default value of instance_format='[instance: %(uuid)s]  '
 that cannot be fixed without config changing.
 
-After implementation of this changes, Sahara log messages should be checked and
+After implementation of this changes, Sahara log messages should be checed and
 fixed to avoid information duplication.
 
 Alternatives

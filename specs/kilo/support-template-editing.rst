@@ -119,8 +119,8 @@ Sahara-image-elements impact
 
 N/A
 
-Horizon impact
---------------
+Sahara-dashboard / Horizon impact
+---------------------------------
 
 Horizon will be updated to include an "edit" button in each row of both the
 node group and cluster templates tables.  That edit button will bring up the

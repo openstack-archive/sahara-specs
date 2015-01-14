@@ -32,14 +32,14 @@ where DataSource objects currently may not be used:
 
 * Java and Spark job types do not require DataSources since they have
   no fixed arg list. Currently input and output paths must be specified as URLs
-  in the ``args`` list inside of ``job_configs`` and authentication configs must
-  be manually specified.
+  in the ``args`` list inside of ``job_configs`` and authentication configs
+  must be manually specified.
 
 * Hive, Pig, and MapReduce jobs which use multiple input or output paths or
-  consume paths through custom parameters require manual configuration. Additional
-  paths or special configuration parameters (ie anything outside of Sahara's
-  assumptions) require manual specification in the ``args``, ``params``, or ``configs``
-  elements inside of ``job_configs``.
+  consume paths through custom parameters require manual configuration.
+  Additional paths or special configuration parameters (ie anything outside
+  of Sahara's assumptions) require manual specification in the ``args``,
+  ``params``, or ``configs`` elements inside of ``job_configs``.
 
 Allowing DataSources to be referenced in ``job_configs`` is an incremental
 improvement that gives users the option of easily using DataSource objects in
@@ -56,14 +56,16 @@ for all job types for maximum flexibility -- Hive and Pig jobs use parameters
 to pass values, MapReduce uses configuration values, and Java and Spark use
 arguments.
 
-If Sahara resolves a value to the name or uuid of a DataSource it will substitute
-the path information from the DataSource for the value and update the job
-configuration as necessary to support authentication. If a value does not resolve
-to a DataSource name or uuid value, the original value will be used.
+If Sahara resolves a value to the name or uuid of a DataSource it will
+substitute the path information from the DataSource for the value and update
+the job configuration as necessary to support authentication. If a value does
+not resolve to a DataSource name or uuid value, the original value will be
+used.
 
-Note that the substitution will occur during submission of the job to the cluster
-but will *not* alter the original JobExecution. This means that if a user
-relaunches a JobExecution or examines it, the orignal values will be present.
+Note that the substitution will occur during submission of the job to the
+cluster but will *not* alter the original JobExecution. This means that if
+a user relaunches a JobExecution or examines it, the orignal values will be
+present.
 
 The following non mutually exclusive configuration values will control this
 feature:
@@ -87,10 +89,11 @@ execution configuration panel.
 Alternatives
 ------------
 
-A slightly diferent approach could be taken in which DataSource names or uuids are prepended
-with a prefix to identify them. This would eliminate the need for config values to turn the
-feature on and would allow individual values to be looked up rather than all values. It would
-be unambiguous but may hurt readability or be unclear to new users.
+A slightly diferent approach could be taken in which DataSource names or uuids
+are prepended with a prefix to identify them. This would eliminate the need for
+config values to turn the feature on and would allow individual values to be
+looked up rather than all values. It would be unambiguous but may hurt
+readability or be unclear to new users.
 
 Data model impact
 -----------------
@@ -161,7 +164,8 @@ Unit tests
 Documentation Impact
 ====================
 
-We will need to document this in the sections covering submission of jobs to Sahara
+We will need to document this in the sections covering submission of jobs
+to Sahara
 
 
 References

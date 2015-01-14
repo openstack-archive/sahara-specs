@@ -29,7 +29,8 @@ Currently there are several ways to give Sahara access to VMs:
    * all nodes need to have floating IPs
 
      - floating IPs are limited resource
-     - floating IPs are usually for external world, not for access from controller
+     - floating IPs are usually for external world, not for access from
+       controller
 
    * all nodes need to be accessible from controller nodes
 

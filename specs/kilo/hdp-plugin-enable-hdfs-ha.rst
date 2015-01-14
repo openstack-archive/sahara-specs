@@ -140,7 +140,8 @@ Primary assignee:
 Work Items
 ----------
 
-* Add a new attribute to cluster-level configs to indicate whether HA is enabled or not.
+* Add a new attribute to cluster-level configs to indicate whether HA is
+  enabled or not.
 * Add new service classes to HDP 2.0.6 for Journal nodes and Zookeeper Failover
   Controllers
 * Add new remote methods to hdp hadoopserver.py for remote commands

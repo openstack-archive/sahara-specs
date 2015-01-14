@@ -123,8 +123,8 @@ Sahara-image-elements impact
 
 N/A
 
-Horizon impact
---------------
+Sahara-dashboard / Horizon impact
+---------------------------------
 
 N/A
 The default templates will show-up in the UI and look like regular templates.

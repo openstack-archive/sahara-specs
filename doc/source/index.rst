@@ -20,6 +20,14 @@ Kilo specs:
 
    specs/kilo/*
 
+Liberty specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/liberty/*
+
 Unimplemented backlog specs:
 
 .. toctree::

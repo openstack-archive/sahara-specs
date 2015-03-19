@@ -44,6 +44,14 @@ Sahara client approved specs:
 
    specs/saharaclient/*
 
+Sahara image elements approved specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/sahara-image-elements/*
+
 ==================
 Indices and tables
 ==================

@@ -83,7 +83,11 @@ The interface is described by the following jsonschema object field:
                 },
                 "value_type": {
                     "type": "string",
-                    "enum": ["string", "number", "data_source"],
+                    "enum": ["string",
+                             "number",
+                             "data_source",
+                             "input_data_source",
+                             "output_data_source"],
                     "default": "string"
                 },
                 "required": {
@@ -130,6 +134,8 @@ New error cases at execution time include:
    definition's interface map.
 4) The specified mapping type is not accepted by the job type being created
    (for instance, specifying the params type for a Spark job.)
+5) An input data source does not contain data.
+6) An output data source contains data.
 
 In the case of additional positional values, the positional arguments given
 in the args list will be appended to the list of interface positional

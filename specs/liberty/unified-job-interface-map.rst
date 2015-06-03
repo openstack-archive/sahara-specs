@@ -187,28 +187,6 @@ by the following DDL (rendered in MySQL syntax for friendliness):
 This table will have uniqueness constraints on (job_id, name) and (job_id,
 mapping_type, location).
 
-A new table will also need to be created for storage of execution fields,
-described by:
-
-::
-
-    CREATE TABLE job_execution_arguments (
-        id VARCHAR(36) NOT NULL,
-        execution_id VARCHAR(36) NOT NULL,
-        argument_id INT NOT NULL,
-        value TEXT NOT NULL, # ex: 'org.openstack.sahara.examples.WordCount'
-        created_at DATETIME,
-        PRIMARY KEY (id),
-        FOREIGN KEY (execution_id)
-            REFERENCES job_executions(id)
-            ON DELETE CASCADE,
-        FOREIGN KEY (argument_id)
-            REFERENCES job_interface_arguments(id)
-            ON DELETE CASCADE
-    );
-
-This table will have a uniqueness constraint on (execution_id, argument_id).
-
 Note: While the TEXT type fields above (save Description) could validly be
 given an upper length limit and stored as VARCHARs, TEXT is safer in the case
 that a job actually requires an overly long argument, or is configured with
@@ -230,10 +208,8 @@ This field will also be represented in all GET methods of the Job resource.
 
 The Create Job Execution schema will have a new "interface" field, described
 above. Each listed exceptional case above will generate a 400: Bad Request
-error.
-
-This field will also be represented in all GET methods of the Job Execution
-resource.
+error. This field will not be returned on a GET of a job execution object;
+instead, the final, merged configuration will be returned.
 
 No other impact is foreseen.
 

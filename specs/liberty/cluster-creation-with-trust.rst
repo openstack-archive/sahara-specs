@@ -37,11 +37,13 @@ suggest making it enabled by default.
 
 The proposed workflow:
 
-1. User requests cluster creation or scaling
-2. Sahara creates trust to be used for OpenStack operation. Trust is stored in
-   memory only (probably context is the good place to put it). No
-   serialization to DB.
-3. Sahara finishes cluster provisioning and deletes trust.
+1. User requests cluster creation or scaling.
+2. Sahara creates trust to be used for OpenStack operation. This trust is
+   stored in the DB in the cluster's trust_id field.
+3. Sahara finishes cluster provisioning or the periodic cluster cleanup task
+   recognizes that cluster activation has timed out and uses the trust to
+   delete the cluster.
+4. Sahara deletes the trust.
 
 For safety reasons created trusts should be limited by time, but their life
 time should be sufficient for cluster creation. Parameter in config file with
@@ -50,7 +52,21 @@ time should be sufficient for cluster creation. Parameter in config file with
 Alternatives
 ------------
 
-None.
+The trust id could be stored in memory rather than in the database. However,
+this implementation would not allow the periodic cluster cleanup task (which
+is not run in the context of the tenant cluster provisioning request) to
+successfully delete stale clusters.
+
+It is notable that storing the trust_id in the database will also be of use
+to us in improving the HA capabilities of cluster creation if we move to a
+multi-stage, DAG-based provisioning flow.
+
+While potential concerns about storing trust ids in the DB exist, these ids
+require a valid auth token for either the admin or tenant user to utilize,
+adding some degree of security in depth in case of a control plane database
+breach. This mechanism may be further secured by storing all trust ids (for
+both transient and long-running clusters) via a secret storage module in the
+future. This change, however, falls outside the scope of this specification.
 
 Data model impact
 -----------------
@@ -119,7 +135,9 @@ Manually. CI will cover the feature.
 Documentation Impact
 ====================
 
-Need to be documented.
+Because trusts are now being used to clean up clusters, we will need to
+document that the periodic cluster cleanup task should be run on a schedule
+that fits within the expiration period of a trust.
 
 References
 ==========

@@ -4,83 +4,131 @@
 
  http://creativecommons.org/licenses/by/3.0/legalcode
 
-==========================================
-Improved secret storage utilizing Barbican
-==========================================
+===========================================
+Improved secret storage utilizing castellan
+===========================================
 
 https://blueprints.launchpad.net/sahara/+spec/improved-secret-storage
 
-There are several secrets (for example passwords) that Sahara uses with
-respect to deployed frameworks which are currently stored in its
-database. This blueprint proposes the creation of a Barbican integration
-module that will allow Sahara to offload secret storage to that service.
+There are several secrets (for example passwords) that sahara uses with
+respect to deployed frameworks which are currently stored in its database.
+This blueprint proposes the usage of the castellan package key manager
+interface for offloading secret storage to the OpenStack Key management
+service.
 
 
 Problem description
 ===================
 
-There are several situations under which Sahara stores usernames and
-passwords to the database. The storage of these credentials represents
+There are several situations under which sahara stores usernames and
+passwords to its database. The storage of these credentials represents
 a security risk for any installation that exposes routes to the
 controller's database. To reduce the risk of a breach in user
-credentials, Sahara should move towards using an external key manager
+credentials, sahara should move towards using an external key manager
 to control the storage of user passwords.
 
 
 Proposed change
 ===============
 
-This specification proposes the creation of a new module in sahara that
-will provide access to an external key manager, initially implemented
-with Barbican. Usage of this new module will be disabled by default with
-an option to enable in the configuration file.
+This specification proposes the integration of the castellan package into
+sahara. Castellan is a package that provides a single point of entry to
+the OpenStack Key management service. It also provides a pluggable key
+manager interface allowing for differing implementations of that service,
+including implementations that use hardware security modules (HSMs) and
+devices which support the key management interoperability protocol (KMIP).
 
-The secrets module will be an abstracted wrapper around the
-Barbican client. The module will provide access to create, retrieve,
-and destroy secrets based on unique identifiers provided by the
-key manager. It will not store information in the Sahara database.
-The secrets module will use Sahara's admin credentials to authenticate
-with the key manager.
+Using the pluggable interface, a sahara specific key manager will be
+implemented that will continue to allow storage of secrets in the
+database. This plugin will be the default key manager to maintain
+backward compatibility, furthermore it will not require any database
+modification or migration.
 
-The rationale for an abstraction around the Barbican client is to
-allow for changing the key manager without disrupting access for
-dependent modules in Sahara.
+For users wishing to take advantage of an external key manager,
+documentation will be provided on how to enable the barbican key
+manager plugin for castellan. Enabling the barbican plugin requires
+a few modifications to the sahara configuration file. In this manner,
+users will be able to customize the usage of the external key manager
+to their deployments.
 
-The intended use of this module will be to convert any secrets that are
-stored within the Sahara database to instead be stored as unique
-identifiers. These identifiers will then be used to retrieve the secrets.
-The storage of secrets will be based on the notion of storing any data
-that can be represented as a string, providing it does not violate the
-storage requirements of the external key manager.
+Example default configuration::
 
-Example secrets module usage::
+    [key_manager]
+    api_class = sahara.utils.key_manager.sahara_key_manager.SaharaKeyManager
 
-    # store a secret from a password
-    from sahara.utils import secrets
-    new_secret_id = secrets.store('password_text_here')
+Example barbican configuration::
 
-    # retrieve a secret
-    secret_cleartext = secrets.get(new_secret_id)
+    [key_manager]
+    api_class = castellan.key_manager.barbican_key_manager.BarbicanKeyManager
 
-    # revoke a secret
-    secrets.destroy(new_secret_id)
 
-This solution will offload the secrets in such a manner that an
-attacker would need to penetrate the database and learn the Sahara
-admin credentials to gain access to the stored passwords. In essence
-we are adding one more block in the path of a would-be attacker.
+To accomodate the specific needs of sahara, a new class will be created
+for interacting with castellan; ``SaharaKeyManager``. This class will
+be based on the abstract base class ``KeyManager`` defined in the
+castellan package.
+
+The ``SaharaKeyManager`` class will implement a thin layer around the storage
+of secrets without an external key manager. This class will allow sahara
+to continue operation as it exists for the Kilo release and thus maintain
+backward compatibility. This class will be the default plugin implementation
+to castellan.
+
+Example usage::
+
+    from castellan import key_manager as km
+    from castellan.key_manager.objects import passphrase
+
+    keymanager = km.API()
+
+    # create secret
+    new_secret = passphrase.Passphrase('password_text_here')
+
+    # store secret
+    new_secret_id = keymanager.store_key(context, new_secret)
+
+    # retrieve secret
+    retrieved_secret = keymanager.get_key(context, new_secret_id)
+    secret_cleartext = retrieved_secret.get_encoded()
+
+    # revoke secret
+    keymanager.delete_key(context, new_secret_id)
+
+
+This solution will provide the capability, through the barbican plugin, to
+offload the secrets in such a manner that an attacker would need to
+penetrate the database and learn the sahara admin credentials to gain
+access to the stored passwords. In essence we are adding one more block
+in the path of a would-be attacker.
+
+This specification focuses on passwords that are currently stored in the
+sahara database. The following is a list of the passwords that will be moved
+to the key manager for this specification:
+
+* Swift passwords entered from UI for data sources
+* Swift passwords entered from UI for job binaries
+* Proxy user passwords for data sources
+* Proxy user passwords for job binaries
+* Hive MySQL passwords for vanilla 1.2.1 plugin
+* Hive database passwords for CDH 5 plugin
+* Hive database passwords for CDH 5.3.0 plugin
+* Hive database passwords for CDH 5.4.0 plugin
+* Sentry database passwords for CDH 5.3.0 plugin
+* Sentry database passwords for CDH 5.4.0 plugin
+* Cloudera Manager passwords for CDH 5 plugin
+* Cloudera Manager passwords for CDH 5.3.0 plugin
+* Cloudera Manager passwords for CDH 5.4.0 plugin
 
 Alternatives
 ------------
 
 One possible alternative to using an external key manager would be
-for Sahara to encrypt passwords and store them in Swift. This would
-satisfy the goal of removing passwords from the Sahara database
+for sahara to encrypt passwords and store them in swift. This would
+satisfy the goal of removing passwords from the sahara database
 while providing a level of security from credential theft.
 
-The downside to this methodology is that it still places Sahara in
-the position of arbitrating security transactions. Namely, the use
-of cryptography in the creation of the stored password data.
+The downside to this methodology is that it places sahara in the position
+of arbitrating security transactions. Namely, the use of cryptography in
+the creation and retrieval of the stored password data.
 
 Data model impact
 -----------------
@@ -100,14 +148,20 @@ None.
 Deployer impact
 ---------------
 
-A new configuration option will be provided to enable the use of
-an external key manager. Deployers will need to be aware of, and
-install a key manager in their stacks.
+A new configuration option will be provided by the castellan package to
+set the key manager implementation. This will be the SaharaKeyManager by
+default. Deployers wishing to use barbican might need to set a few more
+options depending on their installation. These options will be discussed
+in the documentation.
+
+Use of an external key manager will depend on having barbican installed
+in the stack where it will be used.
 
 Developer impact
 ----------------
 
-None.
+Developers adding new stored passwords to sahara should always be using
+the key manager interface.
 
 Sahara-image-elements impact
 ----------------------------
@@ -129,32 +183,37 @@ Assignee(s)
 Primary assignee:
   mimccune (Michael McCune)
 
+Other contributors:
+  None
+
 Work Items
 ----------
 
-* create Barbican client utility module
-* create secrets module
-* add tests for secrets module
+* create SaharaKeyManager class
+* add tests for new class
+* add tests for secret storage
 * create documentation for external key manager usage
+* migrate passwords to key manager
 
 
 Dependencies
 ============
 
-None.
+Castellan package, available through pypi. Currently this version (0.1.0)
+does not have a barbican implementation, but it is under review[1].
 
 
 Testing
 =======
 
-Unit tests will be created to exercise the secrets module and ensure that
-that stored identifiers can be referenced properly.
+Unit tests will be created to exercise the SaharaKeyManager class. There
+will also be unit tests for the integrated implementation.
 
-Ideally integration tests will be created to ensure the proper storage
-and retrieval of secrets. The addition of these tests represents a
-larger change to the testing infrastructure as Barbican will need to be
-added. Depending on the impact of changing the testing deployment these
-might best be addressed in a separate change.
+Ideally, functional integration tests will be created to ensure the
+proper storage and retrieval of secrets. The addition of these tests
+represents a larger change to the testing infrastructure as barbican will
+need to be added. Depending on the impact of changing the testing
+deployment these might best be addressed in a separate change.
 
 
 Documentation Impact
@@ -171,5 +230,12 @@ documentation project.
 References
 ==========
 
-* Barbican documentation http://docs.openstack.org/developer/barbican/
-* Barbican wiki https://github.com/cloudkeep/barbican/wiki
+[1]: https://review.openstack.org/#/c/171918
+
+castellan repository https://github.com/openstack/castellan
+
+*note, the castellan documentation is still a work in progress*
+
+barbican documentation http://docs.openstack.org/developer/barbican/
+
+barbican wiki https://github.com/cloudkeep/barbican/wiki

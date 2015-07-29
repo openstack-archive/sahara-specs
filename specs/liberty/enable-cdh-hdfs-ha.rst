@@ -4,9 +4,9 @@
 
  http://creativecommons.org/licenses/by/3.0/legalcode
 
-=========
-Storm EDP
-=========
+===================
+CDH HDFS HA Support
+===================
 
 https://blueprints.launchpad.net/sahara/+spec/cdh-ha-support
 

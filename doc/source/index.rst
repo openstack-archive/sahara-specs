@@ -28,6 +28,14 @@ Liberty specs:
 
    specs/liberty/*
 
+Mitaka specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/mitaka/*
+
 Unimplemented backlog specs:
 
 .. toctree::

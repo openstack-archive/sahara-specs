@@ -36,7 +36,7 @@ from performing desired processing they have a few choices:
   too heavyweight and not everyone knows it.
 
 * Modify the Sahara source. A savvy user might extend Sahara EDP
-  themselves to get the desired functionality. Howerver, not everyone
+  themselves to get the desired functionality. However, not everyone
   is a developer or has the time to understand Sahara enough to do this.
 
 * Submit a bug or a blueprint and wait for the Sahara team to address it.
@@ -89,13 +89,14 @@ The `args` are specified with the **<argument>** tag and will be passed
 to the shell script in order of specification.
 
 In the reference section below there is a simple example of a shell
-action workflow. There are three tags in the worflow that for Sahara's
+action workflow. There are three tags in the workflow that for Sahara's
 purposes are unique to the `Shell` action and should be handled by
 Sahara:
 
 * **<exec>script</exec>**
   This identifies the command that should be executed by the shell action.
-  The value specified here will be the name of the script idenfied in `mains`.
+  The value specified here will be the name of the script identified in
+  `mains`.
   Technically, this can be any command on the path but it is probably
   simpler if we require it to be a script. Based on some experimentation,
   there are subtleties of path evaluation that can be avoided if a script
@@ -166,7 +167,7 @@ Sahara-dashboard / Horizon impact
 
 We would need a new form for a Shell job type submission. The form should allow
 specification of a main script, supporting libs, configuration values,
-arguments, and environment variables (which are 100% analagous to params from
+arguments, and environment variables (which are 100% analogous to params from
 the perspective of the UI)
 
 Implementation

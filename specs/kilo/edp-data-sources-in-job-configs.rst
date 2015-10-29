@@ -64,7 +64,7 @@ used.
 
 Note that the substitution will occur during submission of the job to the
 cluster but will *not* alter the original JobExecution. This means that if
-a user relaunches a JobExecution or examines it, the orignal values will be
+a user relaunches a JobExecution or examines it, the original values will be
 present.
 
 The following non mutually exclusive configuration values will control this
@@ -89,7 +89,7 @@ execution configuration panel.
 Alternatives
 ------------
 
-A slightly diferent approach could be taken in which DataSource names or uuids
+A slightly different approach could be taken in which DataSource names or uuids
 are prepended with a prefix to identify them. This would eliminate the need for
 config values to turn the feature on and would allow individual values to be
 looked up rather than all values. It would be unambiguous but may hurt

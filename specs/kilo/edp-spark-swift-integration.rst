@@ -86,7 +86,7 @@ than through configuration files.
 
 This does present some security risk, but it is no greater than the risk
 already presented by Oozie jobs that include Swift credentials. In fact, this
-is probaby safer since a user must have direct access to the job directory to
+is probably safer since a user must have direct access to the job directory to
 read the credentials written by Sahara.
 
 Data model impact

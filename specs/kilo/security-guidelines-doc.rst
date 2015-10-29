@@ -48,7 +48,7 @@ plugin specific topics.
 
 The information provided is intended to be updated as new methodologies,
 plugins, and features are implemented. It will also be open to patching
-through the standrd OpenStack workflows by the community at large.
+through the standard OpenStack workflows by the community at large.
 
 
 Alternatives

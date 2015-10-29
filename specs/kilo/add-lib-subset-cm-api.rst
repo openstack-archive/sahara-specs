@@ -142,7 +142,7 @@ Sahara Integration test for CDH plugin is enough.
 Documentation Impact
 ====================
 
-Documents about CDH plugin prerequisites and enabling should be modifed, for
+Documents about CDH plugin prerequisites and enabling should be modified, for
 cm_api is not required any more.
 
 References

@@ -111,7 +111,7 @@ Proposed change
 2) Add a CLI util that can be executed by cron with admin credentials to
    create/update existing default templates. This utility needs to be able to
    take some placeholders like "flavor" or "network" and make the appropriate
-   substitutions (either from configs or via commnad line args) at runtime.
+   substitutions (either from configs or via command line args) at runtime.
    The cron job can be optional if we want to force any updates to be
    triggered explicitly.
 

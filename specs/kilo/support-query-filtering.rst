@@ -107,7 +107,7 @@ No developer impact.
 Sahara-image-elements impact
 ----------------------------
 
-No sahara-image-elements imbact.
+No sahara-image-elements impact.
 
 Sahara-dashboard / Horizon impact
 ---------------------------------

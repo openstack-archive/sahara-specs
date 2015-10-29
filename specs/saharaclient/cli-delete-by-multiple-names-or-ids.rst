@@ -58,7 +58,7 @@ short term solution,  can temporary use --names and --ids for all
 delete verbs of the CLI. And once the CLI will be refactored,
 we will remove all --name(s) and --id(s) arguments.
 
-So the proposed change implies to add --names and --ids arguement
+So the proposed change implies to add --names and --ids arguments
 which consist of a Comma separated list of names and ids::
 
   sahara cluster-delete [--name NAME] [--id cluster_id]

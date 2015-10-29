@@ -49,7 +49,7 @@ repository changes. Namely that any work within a release that is either
 predicted to not be staffed, or that is not started at the end of a
 release should be moved to the backlog directory. This process should be
 directed by the specification drafters as they will most likely be the
-primary assignees for new work. In situtations where the drafter of a
+primary assignees for new work. In situations where the drafter of a
 specification feels that there will be insufficient resources to create
 an implementation then they should move an approved specification to the
 backlog directory. This process should also be revisited at the end of a
@@ -133,7 +133,7 @@ Work Items
 
 * Create the backlog directory and documentation.
 * Clean up the juno directory.
-* Add references to backlog in the contributing documenation.
+* Add references to backlog in the contributing documentation.
 
 
 Dependencies

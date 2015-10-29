@@ -35,7 +35,7 @@ The implementation will need below changes on codes for each service:
 * Add process names of the service in some places.
 * Add service or process configuration, and network ports to open.
 * Add service validation.
-* Moidify some util methods, like get_service, to meet more services.
+* Modify some utils methods, like get_service, to meet more services.
 * Some other changes for a few specific services if needed.
 
 Alternatives

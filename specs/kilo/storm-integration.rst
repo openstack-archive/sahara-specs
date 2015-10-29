@@ -122,7 +122,7 @@ The implementation is divided in three steps:
     on Spark's but necessary changes will be made.
   * Storm doesn't rely on many configuration files, there is only one needed
     and it is used by all nodes. This configuration file is written in YAML
-    and it should be dinamically written in the plugin since it needs to have
+    and it should be dynamically written in the plugin since it needs to have
     the name or ip of the master node and also zookeeper node(s). We will need
     PYYAML to parse this configuration to YAML. PYYAML is already a global
     requirement of OpenStack and will be added to Sahara's requirement as well.

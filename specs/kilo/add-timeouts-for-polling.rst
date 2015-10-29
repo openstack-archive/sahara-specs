@@ -147,7 +147,7 @@ manually.
 Documentation Impact
 ====================
 
-Required to document this feauture in sahara/userdoc/configuration.guide.
+Required to document this feature in sahara/userdoc/configuration.guide.
 
 References
 ==========

@@ -28,7 +28,7 @@ Proposed change
 
 We plan to write test cases like the way we did in map_reduce_testing. First
 copy the shell script to the node,then run this script, the script will run
-basic useage of the services.
+basic usage of the services.
 
 The implementation will need below changes on codes for each service:
 

@@ -35,7 +35,7 @@ by:
 Proposed change
 ===============
 
-The impementaion will change start_cluster to call first_run, and remove the
+The implementation will change start_cluster to call first_run, and remove the
 other part of work can be done by first_run from the method body.
 
 For detail, it will be like following:
@@ -65,7 +65,7 @@ create_hive_dirs can be removed.
 Alternatives
 ------------
 
-Current way works at this stage, but it increases comlexity of coding work to
+Current way works at this stage, but it increases complexity of coding work to
 add more services support to CDH plugin. And, when CM is upgraded in the
 future, the correctness of current codes cannot be assured. At the end, the
 first_run method to start services is recommended by Cloudera.

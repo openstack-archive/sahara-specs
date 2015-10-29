@@ -102,7 +102,7 @@ None
 REST API impact
 ---------------
 
-Backward compatiblity will be maintained since this is a new endpoint.
+Backward compatibility will be maintained since this is a new endpoint.
 
 **GET /v1.1/{tenant_id}/job-types**
 

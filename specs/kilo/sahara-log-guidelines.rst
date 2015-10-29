@@ -17,12 +17,12 @@ Problem description
 ===================
 
 Now log levels and messages in Sahara are mixed and don't match the OpenStack
-logging guideliness.
+logging guidelines.
 
 Proposed change
 ===============
 
-The good way to unify our log system would be to follow the major guideliness.
+The good way to unify our log system would be to follow the major guidelines.
 Here is a brief description of log levels:
 
 * Debug: Shows everything and is likely not suitable for normal production
@@ -98,7 +98,7 @@ readable please use {<smthg>} instead of {0} in log messages.
 Alternatives
 ------------
 
-We need to follow OpenStack guideliness, but if needed we can move plugin logs
+We need to follow OpenStack guidelines, but if needed we can move plugin logs
 to DEBUG level instead of INFO. It should be discussed separately in each case.
 
 Data model impact

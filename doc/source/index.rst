@@ -4,29 +4,14 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
-Juno implemented specs:
+Newton specs:
 
 .. toctree::
    :glob:
    :maxdepth: 1
 
-   specs/juno/*
+   specs/newton/*
 
-Kilo specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/kilo/*
-
-Liberty specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/liberty/*
 
 Mitaka specs:
 
@@ -36,37 +21,60 @@ Mitaka specs:
 
    specs/mitaka/*
 
-Newton specs:
+
+Liberty specs:
 
 .. toctree::
    :glob:
    :maxdepth: 1
 
-   specs/newton/*
+   specs/liberty/*
+
+
+Kilo specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/kilo/*
+
+
+Juno specs:
+
+.. toctree::
+  :glob:
+  :maxdepth: 1
+
+  specs/juno/*
+
 
 Unimplemented backlog specs:
 
 .. toctree::
-   :glob:
-   :maxdepth: 1
+ :glob:
+ :maxdepth: 1
 
-   specs/backlog/*
+ specs/backlog/*
 
-Sahara client approved specs:
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/saharaclient/*
-
-Sahara image elements approved specs:
+Sahara client specs:
 
 .. toctree::
-   :glob:
-   :maxdepth: 1
+ :glob:
+ :maxdepth: 1
 
-   specs/sahara-image-elements/*
+ specs/saharaclient/*
+
+
+Sahara image elements specs:
+
+.. toctree::
+ :glob:
+ :maxdepth: 1
+
+ specs/sahara-image-elements/*
+
 
 ==================
 Indices and tables

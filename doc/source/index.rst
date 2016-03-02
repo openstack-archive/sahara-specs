@@ -36,6 +36,14 @@ Mitaka specs:
 
    specs/mitaka/*
 
+Newton specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/newton/*
+
 Unimplemented backlog specs:
 
 .. toctree::

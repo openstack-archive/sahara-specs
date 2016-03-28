@@ -83,7 +83,7 @@ Assignee(s)
 -----------
 
 Primary assignee:
-  Michael Le (mvle)
+  None
 
 Work Items
 ----------

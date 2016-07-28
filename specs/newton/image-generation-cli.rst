@@ -71,32 +71,29 @@ plugin's specifications.
 ::
 
     Usage: sahara-image-create
-        -p PLUGIN list|of|plugins|as|loaded|from|stevedore
-        -v VERSION versions|as|loaded|from|stevedore|if|plugin|set
-        -i IMAGE_PATH
-        [-t]
+        --image IMAGE_PATH
+        [--root-filesystem]
+        [--test]
+        PLUGIN PLUGIN_VERSION
         [More arguments per plugin and version]
-    * -i, --image: The path to an image to modify. This image will be
-      modified in-place: be sure to target a copy if you wish to maintain
-      a clean master image.
-    * -p, --plugin: The name of the Sahara plugin for which you would
-      like to generate an image. Use sahara-image-create -p PLUGIN -h to
-      see a set of versions for a specific plugin.
-    * -v, --version: The version of the Sahara plugin for which you would
-      like to generate an image. Use sahara-image-create -p PLUGIN -v
-      VERSION -h to see a full set of arguments for a specific plugin and
-      version.
-    * -t, --test: If this flag is set, no changes will be made to the
-      image; instead, the script will fail if discrepancies are found
-      between the image and the intended state.
+    * --image: The path to an image to modify. This image will be modified
+        in-place: be sure to target a copy if you wish to maintain a
+        clean master image.
+    * --root-filesystem: The filesystem to mount as the root volume on the
+        image. No value is required if only one filesystem is detected.
+    * --test-only: If this flag is set, no changes will be made to the
+        image; instead, the script will fail if discrepancies are found
+        between the image and the intended state.
     [* variable per plugin and version: Other arguments as specified in
       the generation script.
     * ...]
     * -h, --help: See this message.
 
 
-If -t is set, the image will be packed with the ``reconcile`` option set to
-False (meaning that the image will only be tested, not changed.)
+Both PLUGIN and PLUGIN_VERSION will be implemented as required subcommands.
+
+If --test-only is set, the image will be packed with the ``reconcile``
+option set to False (meaning that the image will only be tested, not changed.)
 
 Each image generation .yaml (as originally described in the
 validate-images-spi spec,) may now register a set of 'arguments' as well
@@ -108,23 +105,19 @@ validator declaration, and will take the following form:
     arguments:
       - java-version:
         description: The java distribution.
-        argnames: [j, java-version]
         target_variable: JAVA_VERSION
         default: openjdk
         required: false
-        enum:
+        choices:
           - oracle-java
           - openjdk
 
 A set of arguments for any one yaml must obey the following rules:
 
-1) At least one argname must be provided for each argument.
-2) Argnames may contain up to one single-letter member and up to one multiple-
-   letter member.
-3) All argnames must be unique, and no argnames may collide with global script
+1) All argnames must be unique, and no argnames may collide with global script
    argument tokens.
-4) If required is false, a default value must be provided.
-5) The target_variable field is required, for clarity.
+2) If required is false, a default value must be provided.
+3) The target_variable field is required, for clarity.
 
 An ImageArgument class will be added to the sahara.service.images module in
 order that all plugins can use the same object format. It will follow the
@@ -144,7 +137,8 @@ have the signature:
 
 ::
 
-    def pack_image(remote, reconcile=True, argument_map=None, **kwargs)
+    def pack_image(self, hadoop_version, remote, reconcile=True,
+                   image_arguments=None)
 
 This method will take an ImageRemote (see below). In most plugins, this
 will:
@@ -152,7 +146,7 @@ will:
 1) Validate the incoming argument map (to ensure that all required arguments
    have been provided, that values exist in any given enum, etc.)
 2) Place the incoming arguments into an env_map per their target_variables.
-3) Generate a set of ImageValidators (just as is done for image validation)
+3) Generate a set of ImageValidators (just as is done for image validation).
 4) Call the validate method of the validator set using the remote and
    argument_map.
 
@@ -171,7 +165,7 @@ readable recipes. This validator's yaml definition will take the form:
 ::
 
     argument_case:
-        variable_name: JAVA_VERSION
+        argument_name: JAVA_VERSION
         cases:
             openjdk:
                 - [action]

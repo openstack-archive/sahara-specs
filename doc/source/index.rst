@@ -4,6 +4,15 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
+Ocata specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/ocata/*
+
+
 Newton specs:
 
 .. toctree::

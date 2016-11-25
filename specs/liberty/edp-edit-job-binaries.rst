@@ -45,7 +45,7 @@ cluster and a change during this window would cause the job to run with
 paths other than the ones that existed at submission time.
 
 Note, the paths of binaries used by a job execution should be recorded in
-the job exeuction. This will remove a restriction on editing of paths in
+the job execution. This will remove a restriction on editing of paths in
 a job binary that is referenced by an existing job execution. This will be
 done in a separate blueprint listed in the references section (similar
 recording of data source paths used during an execution is supported in

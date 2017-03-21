@@ -4,6 +4,15 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
+Pike specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/pike/*
+
+
 Ocata specs:
 
 .. toctree::

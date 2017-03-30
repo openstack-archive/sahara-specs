@@ -28,6 +28,11 @@ will be moved to a directory specific to that release::
 
   specs/saharaclient/<release>/
 
+The layout of this repository for Sahara Tests is::
+
+  specs/sahara-tests/
+
+
 You can find an example spec in ``specs/template.rst``.
 
 For specifications that have been reviewed and approved but have not been

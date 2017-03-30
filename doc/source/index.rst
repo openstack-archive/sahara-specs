@@ -94,6 +94,15 @@ Sahara image elements specs:
  specs/sahara-image-elements/*
 
 
+Sahara tests specs:
+
+.. toctree::
+ :glob:
+ :maxdepth: 1
+
+ specs/sahara-tests/*
+
+
 ==================
 Indices and tables
 ==================

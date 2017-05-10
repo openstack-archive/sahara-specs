@@ -4,6 +4,15 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
+Queens specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/queens/*
+
+
 Pike specs:
 
 .. toctree::

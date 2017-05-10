@@ -4,9 +4,9 @@
 
  http://creativecommons.org/licenses/by/3.0/legalcode
 
-============================
-Deprecation of Direct Engine
-============================
+========================
+Removal of Direct Engine
+========================
 
 https://blueprints.launchpad.net/sahara/+spec/remove-direct-engine
 

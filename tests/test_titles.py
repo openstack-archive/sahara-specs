@@ -55,7 +55,8 @@ class TestTitles(testtools.TestCase):
         self.assertIn('Other end user impact', titles[proposed])
         self.assertIn('Deployer impact', titles[proposed])
         self.assertIn('Developer impact', titles[proposed])
-        self.assertIn('Sahara-image-elements impact', titles[proposed])
+        self.assertTrue('Sahara-image-elements impact' in titles[proposed] or
+                        'Image Packing impact' in titles[proposed])
         self.assertIn('Sahara-dashboard / Horizon impact', titles[proposed])
 
         impl = 'Implementation'

@@ -173,11 +173,11 @@ such as:
 * If the blueprint proposes a change to the driver API, discussion of how
   other hypervisors would implement the feature is required.
 
-Sahara-image-elements impact
-----------------------------
+Image Packing impact
+--------------------
 
-Does it require changes to the sahara-image-elements? If so, changes should be
-described well.
+Does it require changes to the image packing process (or to
+sahara-image-elements?) If so, changes should be described well.
 
 Sahara-dashboard / Horizon impact
 ---------------------------------

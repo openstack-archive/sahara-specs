@@ -322,10 +322,10 @@ Assignee(s)
 -----------
 
 Primary assignee:
-  mimccune (Michael McCune)
+  Telles Nobrega
 
 Other contributors:
-
+  mimccune (Michael McCune)
 
 Work Items
 ----------

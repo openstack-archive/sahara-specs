@@ -92,11 +92,11 @@ Update the indicated datasource object
 **Example**
     **request**
 
-    .. sourcecode:: http
+    .. sourcecode:: text
 
         PUT http://sahara/v1.1/{tenant_id}/data-sources/{data_source_id}
 
-    .. sourcecode:: http
+    .. sourcecode:: json
 
         {
             "description": "some description",

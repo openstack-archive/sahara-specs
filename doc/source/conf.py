@@ -12,7 +12,6 @@
 # serve to show the default.
 
 import datetime
-import subprocess
 import sys
 import os
 
@@ -32,7 +31,7 @@ extensions = ['redirect',
               'sphinx.ext.autodoc',
               'sphinx.ext.todo',
               'sphinx.ext.viewcode',
-              'oslosphinx',
+              'openstackdocstheme',
               'yasfb',
              ]
 
@@ -102,7 +101,11 @@ man_pages = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'nature'
+html_theme = 'openstackdocs'
+
+repository_name = 'openstack/sahara-specs'
+bug_project = 'sahara'
+bug_tag = 'spec'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -130,10 +133,7 @@ html_theme = 'nature'
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-git_cmd = ["git", "log", "--pretty=format:'%ad, commit %h'", "--date=local",
-    "-n1"]
-html_last_updated_fmt = subprocess.Popen(
-    git_cmd, stdout=subprocess.PIPE).communicate()[0]
+html_last_updated_fmt = '%Y-%m-%d %H:%M'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.

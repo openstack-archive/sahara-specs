@@ -64,27 +64,27 @@ of return value of this plugin SPI method is the following:
     "version_labels": {
         "2.3": {
             "stable": {
-                'status': True,
+                "status": true
             },
             "enabled": {
-                'status': True,
-            },
+                "status": true
+            }
         },
         "2.2": {
             "deprecated": {
-                'status': True,
+                "status": true
+            },
+            "enabled": {
+                "status": true
             }
-            'enabled': {
-                'status': True,
-            }
-        },
-    }
-    "plugin_labels": [
-        "enabled": {
-            'status': False,
         }
-    ]
-
+    },
+    "plugin_labels": {
+        "enabled": {
+            "status": false,
+        }
+    }
+ }
 ..
 
 PluginManager on requests of all plugins will collect all data stored in DB

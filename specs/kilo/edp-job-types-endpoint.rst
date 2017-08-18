@@ -116,7 +116,7 @@ of which plugins in the current instance.
 **Example**
     **request**
 
-    .. sourcecode:: http
+    .. sourcecode:: text
 
         GET http://sahara/v1.1/775181/job-types
 
@@ -262,7 +262,7 @@ Here is an example of a request that uses the plugin and version filters:
 **Example**
     **request**
 
-    .. sourcecode:: http
+    .. sourcecode:: text
 
         GET http://sahara/v1.1/775181/job-types?plugin=hdp&version=2.0.6
 
@@ -352,7 +352,7 @@ version, and job type.
 **Example**
     **request**
 
-    .. sourcecode:: http
+    .. sourcecode:: text
 
         GET http://sahara/v1.1/775181/job-types?hints=true&plugin=hdp&version=1.3.2&type=Hive
 

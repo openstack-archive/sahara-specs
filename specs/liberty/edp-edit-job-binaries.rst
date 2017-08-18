@@ -95,11 +95,11 @@ Update the indicated job-binary object
 **Example**
     **request**
 
-    .. sourcecode:: http
+    .. sourcecode:: text
 
         PUT http://sahara/v1.1/{tenant_id}/job-binaries/{job_binary_id}
 
-    .. sourcecode:: http
+    .. sourcecode:: json
 
         {
             "description": "some description",

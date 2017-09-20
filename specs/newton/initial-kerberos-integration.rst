@@ -63,7 +63,7 @@ In such case, additional options are required for that:
    improved secret storage;
  * ``KDC server hostname``: hostname of KDC server
 
-If something additional will be needed to indentify KDC server it also will
+If something additional will be needed to identify KDC server it also will
 be added to general section of configs.
 
 Other possible improvements can be done after implementation of steps above.

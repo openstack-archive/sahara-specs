@@ -4,6 +4,15 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
+Rocky specs:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   specs/rocky/*
+
+
 Queens specs:
 
 .. toctree::

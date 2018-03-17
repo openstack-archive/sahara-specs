@@ -52,10 +52,8 @@ list.
 Specifications are proposed for a given release by adding them to the
 ``specs/<release>`` directory and posting it for review. Not all approved
 blueprints will get fully implemented. The implementation status of a
-blueprint for a given release can be found by looking at the blueprint in
-launchpad::
-
-  http://blueprints.launchpad.net/sahara/<blueprint-name>
+blueprint for a given release can be found by looking at the tasks associated
+to the corresponding story in Storyboard.
 
 Incomplete specifications have to be re-proposed for every release. The review
 may be quick, but even if something was previously approved, it should be
@@ -67,8 +65,8 @@ completed entirely through Launchpad blueprints::
 
   http://blueprints.launchpad.net/sahara
 
-Please note, Launchpad blueprints are still used for tracking the
-current status of blueprints. For more information, see::
+Launchpad blueprints are no more used for tracking the
+current status of blueprints. For historical information, see::
 
   https://wiki.openstack.org/wiki/Blueprints
 

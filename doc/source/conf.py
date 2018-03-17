@@ -104,7 +104,7 @@ man_pages = []
 html_theme = 'openstackdocs'
 
 repository_name = 'openstack/sahara-specs'
-bug_project = 'sahara'
+bug_project = '939'
 bug_tag = 'spec'
 
 # Theme options are theme-specific and customize the look and feel of a theme

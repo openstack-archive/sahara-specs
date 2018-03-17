@@ -8,10 +8,6 @@
 Example Spec - The title of your blueprint
 ==========================================
 
-Include the URL of your launchpad blueprint:
-
-https://blueprints.launchpad.net/sahara/+spec/example
-
 Introduction paragraph -- why are we doing anything? A single paragraph of
 prose that operators can understand. The title and this first paragraph
 should be used as the subject line and body of the commit message
@@ -22,10 +18,6 @@ Some notes about using this template:
 * Your spec should be in ReSTructured text, like this template.
 
 * Please wrap text at 79 columns.
-
-* The filename in the git repository should match the launchpad URL, for
-  example a URL of: https://blueprints.launchpad.net/sahara/+spec/awesome-thing
-  should be named awesome-thing.rst
 
 * Please do not delete any of the sections in this template.  If you have
   nothing to say for a whole section, just write: None
@@ -200,10 +192,10 @@ If more than one person is working on the implementation, please designate the
 primary author and contact.
 
 Primary assignee:
-  <launchpad-id or None>
+  <openstack-id or None>
 
 Other contributors:
-  <launchpad-id or None>
+  <openstack-id or None>
 
 Work Items
 ----------

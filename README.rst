@@ -2,8 +2,8 @@
 Team and repository tags
 ========================
 
-.. image:: http://governance.openstack.org/badges/sahara-specs.svg
-    :target: http://governance.openstack.org/reference/tags/index.html
+.. image:: https://governance.openstack.org/tc/badges/sahara-specs.svg
+    :target: https://governance.openstack.org/tc/reference/tags/index.html
 
 .. Change things from this point on
 
@@ -63,7 +63,7 @@ Prior to the Juno development cycle and for the Juno-1 development milestone,
 this repository was not used for spec reviews. Reviews prior to Juno were
 completed entirely through Launchpad blueprints::
 
-  http://blueprints.launchpad.net/sahara
+  https://blueprints.launchpad.net/sahara
 
 Launchpad blueprints are no more used for tracking the
 current status of blueprints. For historical information, see::
@@ -72,7 +72,7 @@ current status of blueprints. For historical information, see::
 
 For more information about working with gerrit, see::
 
-  http://docs.openstack.org/infra/manual/developers.html#development-workflow
+  https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 To validate that the specification is syntactically correct (i.e. get more
 confidence in the Jenkins result), please execute the following command::

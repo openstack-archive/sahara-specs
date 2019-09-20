@@ -28,9 +28,7 @@ sys.path.insert(0, os.path.abspath('.'))
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['redirect',
-              'sphinx.ext.autodoc',
               'sphinx.ext.todo',
-              'sphinx.ext.viewcode',
               'openstackdocstheme',
               'yasfb',
              ]
@@ -94,6 +92,10 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = ['sahara-specs.']
 
+# Neither version nor release number for specs
+version = ''
+release = ''
+
 # -- Options for man page output ----------------------------------------------
 man_pages = []
 
@@ -130,14 +132,6 @@ bug_tag = 'spec'
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #html_favicon = None
-
-# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-# using the given strftime format.
-html_last_updated_fmt = '%Y-%m-%d %H:%M'
-
-# If true, SmartyPants will be used to convert quotes and dashes to
-# typographically correct entities.
-#html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
@@ -178,22 +172,11 @@ htmlhelp_basename = 'Sahara-Specsdoc'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
-
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
-
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
-}
-
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Sahara-specs.tex', u'Sahara Specs',
-   u'OpenStack Sahara Team', 'manual'),
+  ('index', 'doc-sahara-specs.tex', u'Sahara Specs',
+   u'Sahara Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -215,6 +198,8 @@ latex_documents = [
 
 # If false, no module index is generated.
 #latex_domain_indices = True
+
+smartquotes_excludes = {'builders': ['latex']}
 
 # -- Options for Texinfo output ------------------------------------------------
 

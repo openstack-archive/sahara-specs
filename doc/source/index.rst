@@ -4,125 +4,56 @@
 Data Processing Service (Sahara) Specifications
 ===============================================
 
-Rocky specs:
+Implemented specs by release:
 
 .. toctree::
    :glob:
-   :maxdepth: 1
+   :maxdepth: 2
 
-   specs/rocky/*
-
-
-Queens specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/queens/*
-
-
-Pike specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/pike/*
-
-
-Ocata specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/ocata/*
-
-
-Newton specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/newton/*
-
-
-Mitaka specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/mitaka/*
-
-
-Liberty specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/liberty/*
-
-
-Kilo specs:
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   specs/kilo/*
-
-
-Juno specs:
-
-.. toctree::
-  :glob:
-  :maxdepth: 1
-
-  specs/juno/*
+   specs/rocky_idx.rst
+   specs/queens_idx.rst
+   specs/pike_idx.rst
+   specs/ocata_idx.rst
+   specs/newton_idx.rst
+   specs/mitaka_idx.rst
+   specs/liberty_idx.rst
+   specs/kilo_idx.rst
+   specs/juno_idx.rst
 
 
 Unimplemented backlog specs:
 
 .. toctree::
- :glob:
- :maxdepth: 1
+   :glob:
+   :maxdepth: 2
 
- specs/backlog/*
+   specs/backlog_idx.rst
 
-
-Sahara client specs:
-
-.. toctree::
- :glob:
- :maxdepth: 1
-
- specs/saharaclient/*
-
-
-Sahara image elements specs:
+Other components:
 
 .. toctree::
- :glob:
- :maxdepth: 1
+   :glob:
+   :maxdepth: 2
 
- specs/sahara-image-elements/*
+   specs/saharaclient_idx.rst
 
-
-Sahara tests specs:
 
 .. toctree::
- :glob:
- :maxdepth: 1
+   :glob:
+   :maxdepth: 2
 
- specs/sahara-tests/*
+   specs/sahara-image-elements_idx.rst
 
 
-==================
-Indices and tables
-==================
+.. toctree::
+   :glob:
+   :maxdepth: 2
 
-* :ref:`search`
+   specs/sahara-tests_idx.rst
+
+.. only:: html
+
+   Indices and tables
+   ==================
+
+   * :ref:`search`

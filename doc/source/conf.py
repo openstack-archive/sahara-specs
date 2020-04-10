@@ -106,8 +106,7 @@ man_pages = []
 html_theme = 'openstackdocs'
 
 repository_name = 'openstack/sahara-specs'
-bug_project = '939'
-bug_tag = 'spec'
+use_storyboard = True
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

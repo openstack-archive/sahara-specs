@@ -101,7 +101,7 @@ This will require following changes:
   sahara/plugin/cdh/version/versionhandler.py: VersionHandler
   sahara/plugin/cdh/version/config_helper.py
   sahara/plugin/cdh/version/validation.py
-* Seperate Validation.validate_cluster_creating function
+* Separate Validation.validate_cluster_creating function
 * Add unit test case for low covered modules.
 * Remove useless test cases dedicated for refactoring
   useless test cases in:

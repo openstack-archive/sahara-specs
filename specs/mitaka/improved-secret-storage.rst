@@ -236,6 +236,6 @@ castellan repository https://github.com/openstack/castellan
 
 *note, the castellan documentation is still a work in progress*
 
-barbican documentation http://docs.openstack.org/developer/barbican/
+barbican documentation https://docs.openstack.org/barbican/latest/
 
 barbican wiki https://github.com/cloudkeep/barbican/wiki
